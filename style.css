@@ -23,7 +23,6 @@ body {
       35px 35px,
     url("resources/noise-mask.png") 256px 50% / 256px 256px;
   mask-composite: intersect;
-  animation: flicker 20s infinite linear;
   z-index: -1;
 }
 
@@ -50,13 +49,5 @@ p {
 @keyframes typing {
   to {
     clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes flicker {
-  to {
-    mask-position:
-      50% 50%,
-      0 50%;
   }
 }
