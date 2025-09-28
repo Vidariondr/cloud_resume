@@ -29,6 +29,17 @@ header {
   place-self: center;
 }
 
+header,
+section {
+  height: 100vh;
+  display: grid;
+}
+
+section {
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 1.5fr 7fr 1fr;
+}
+
 h1 {
   color: white;
   font-family: "Roboto", sans-serif;
@@ -39,6 +50,7 @@ h1 {
   margin: 0 auto;
   clip-path: inset(0 100% 0 0);
   animation: typing 3.5s forwards;
+  align-self: end;
 }
 
 p {
