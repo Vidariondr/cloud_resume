@@ -38,11 +38,19 @@ section {
 section {
   grid-template-columns: 1fr 5fr 1fr;
   grid-template-rows: 1.5fr 7fr 1fr;
+  grid-template-areas:
+    ". header ."
+    ". main sidebar"
+    ". footer .";
+}
+
+h1,
+h2 {
+  color: white;
+  font-family: "Roboto", sans-serif;
 }
 
 h1 {
-  color: white;
-  font-family: "Roboto", sans-serif;
   font-weight: 900;
   font-size: 10em;
   white-space: nowrap;
@@ -50,6 +58,14 @@ h1 {
   margin: 0 auto;
   clip-path: inset(0 100% 0 0);
   animation: typing 3.5s forwards;
+  align-self: end;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 7.5em;
+  grid-area: header;
+  justify-self: center;
   align-self: end;
 }
 
