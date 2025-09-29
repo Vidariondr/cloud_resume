@@ -36,16 +36,60 @@ section {
 }
 
 section {
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
   grid-template-rows: 1.5fr 7fr 1fr;
   grid-template-areas:
-    ". header ."
-    ". main sidebar"
-    ". footer .";
+    ". header header ."
+    ". main main sidebar"
+    ". footer footer .";
+  gap: 1em;
+}
+
+#experience {
+  grid-template-areas:
+    ". header header ."
+    ". left right sidebar"
+    ". footer footer .";
+}
+
+#job1 {
+  grid-area: left;
+  width: 100%;
+  align-self: center;
+}
+
+#job2 {
+  grid-area: right;
+  width: 100%;
+  align-self: center;
+}
+
+.job_location {
+  font-weight: 100;
+  font-size: 1.5em;
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+ul {
+  margin-bottom: 3em;
+}
+
+li {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  list-style-position: inside;
+}
+
+.job_date {
+  text-align: left;
+  font-size: 1.5em;
 }
 
 h1,
-h2 {
+h2,
+h3,
+li {
   color: white;
   font-family: "Roboto", sans-serif;
 }
@@ -67,6 +111,11 @@ h2 {
   grid-area: header;
   justify-self: center;
   align-self: end;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 3em;
 }
 
 p {
