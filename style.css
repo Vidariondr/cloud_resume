@@ -126,6 +126,89 @@ p {
   text-align: center;
 }
 
+#hobbies_carousel {
+  text-align: center;
+  width: 75%;
+  height: 75%;
+  grid-area: main;
+  place-self: center;
+}
+
+#slides {
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+.slide {
+  display: flex;
+  scroll-margin-top: 30em;
+  scroll-snap-align: start;
+  border-radius: 1em;
+  flex-shrink: 0;
+  width: 100%;
+  margin-right: 1em;
+  background-color: #555;
+}
+
+.slide_text_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5em;
+  text-align: left;
+  width: 40%;
+}
+
+.slide_description {
+  text-align: left;
+  font-size: 1.5em;
+  font-style: normal;
+  padding-top: 2em;
+}
+
+.slide_image {
+  width: 60%;
+  border-radius: 0 1em 1em 0;
+  background-size: cover;
+}
+
+#slide_image_1 {
+  background-image: url(resources/3d_printing.jpg);
+  background-position: right;
+}
+
+#slide_image_2 {
+  background-image: url(resources/self_hosting.jpg);
+  background-position: left;
+}
+
+#slide_image_3 {
+  background-image: url(resources/bike.jpg);
+  background-position: right;
+}
+
+#slide_image_4 {
+  background-image: url(resources/skills.jpg);
+  background-position: right;
+}
+
+.carousel_button {
+  font-family: "Roboto", sans-serif;
+  display: inline-flex;
+  width: 2em;
+  height: 2em;
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0 0 1.5rem 0;
+}
+
 @keyframes typing {
   to {
     clip-path: inset(0 0 0 0);
