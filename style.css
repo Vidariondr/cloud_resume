@@ -89,6 +89,7 @@ li {
 h1,
 h2,
 h3,
+a,
 li {
   color: white;
   font-family: "Roboto", sans-serif;
@@ -207,6 +208,97 @@ p {
   align-items: center;
   border-radius: 50%;
   margin: 0 0 1.5rem 0;
+}
+
+#skills_grid {
+  margin: 0em 25em;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-area: main;
+  place-items: center;
+  place-self: center;
+  height: 100%;
+  gap: 1em;
+}
+
+.skills_grid_item {
+  display: grid;
+  grid-template-rows: 8em 1fr;
+  grid-template-columns: 8em;
+  grid-template-areas:
+    "image"
+    "text";
+  background-color: #ccc;
+  border-radius: 1em;
+  height: 100%;
+  width: 100%;
+  box-shadow: 1em 1.5em 2.5em black;
+  padding: 2em 2.5em;
+  place-items: center;
+}
+
+.skills_grid_item > img {
+  grid-area: image;
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.skills_grid_item > p {
+  grid-area: text;
+  color: #555;
+  font-size: 1em;
+  font-style: normal;
+}
+
+.skills_grid_item:hover {
+  transform: scale(115%);
+  transition: ease-in 0.2s;
+}
+
+#education_grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-area: main;
+  place-items: center;
+  text-align: center;
+}
+
+.education_grid_item_description {
+  font-style: normal;
+  font-size: 1.75em;
+  font-weight: 300;
+  padding-top: 1em;
+}
+
+.education_grid_item_time {
+  font-size: 1.5em;
+  padding-top: 1em;
+  font-weight: 200;
+}
+
+#project_grid {
+  display: grid;
+  grid-area: main;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  gap: 15em;
+}
+
+.project_grid_item > h3 {
+  margin-bottom: 0.5em;
+}
+
+.project_grid_item > a {
+  color: white;
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.project_grid_item_description {
+  margin-top: 1em;
+  text-align: left;
 }
 
 @keyframes typing {
