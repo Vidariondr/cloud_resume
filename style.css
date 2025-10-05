@@ -6,10 +6,38 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: hsl(0 0% 10%);
   min-height: 100vh;
   display: grid;
+}
+
+#floating_menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  margin-right: 5em;
+  margin-bottom: 5em;
+}
+
+#floating_menu > a {
+  margin-bottom: 1em;
+  border-radius: 50%;
+  padding: 1em 1em;
+  display: inline-flex;
+  background-color: #555;
+}
+
+#floating_menu > a > svg {
+  fill: white;
+  width: 1em;
+  height: 1em;
 }
 
 #background {
@@ -93,6 +121,7 @@ a,
 li {
   color: white;
   font-family: "Roboto", sans-serif;
+  scroll-margin-top: 1em;
 }
 
 h1 {
