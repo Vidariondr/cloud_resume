@@ -8,6 +8,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 body {
@@ -22,22 +23,26 @@ body {
   position: fixed;
   right: 0px;
   bottom: 0px;
-  margin-right: 5em;
-  margin-bottom: 5em;
+  margin-right: 10rem;
+  margin-bottom: 10rem;
 }
 
 #floating_menu > a {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
   border-radius: 50%;
-  padding: 1em 1em;
+  padding: 1rem 1rem;
   display: inline-flex;
   background-color: #555;
 }
 
+#floating_menu > a:hover {
+  background-color: #888;
+}
+
 #floating_menu > a > svg {
   fill: white;
-  width: 1em;
-  height: 1em;
+  width: 2rem;
+  height: 2rem;
 }
 
 #background {
@@ -46,9 +51,9 @@ body {
   height: 100%;
   width: 100%;
   mask:
-    radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 50% 50% /
-      35px 35px,
-    url("resources/noise-mask.png") 256px 50% / 256px 256px;
+    radial-gradient(circle at 50% 50%, white 0.2rem, transparent 0.25rem) 50%
+      50% / 3.5rem 3.5rem,
+    url("resources/noise-mask.png") 25.6rem 50% / 25.6rem 25.6rem;
   mask-composite: intersect;
   z-index: -1;
 }
@@ -65,12 +70,12 @@ section {
 
 section {
   grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
-  grid-template-rows: 1.5fr 7fr 1fr;
+  grid-template-rows: 2.5fr 7fr 0.5fr;
   grid-template-areas:
     ". header header ."
     ". main main sidebar"
     ". footer footer .";
-  gap: 1em;
+  gap: 1rem;
 }
 
 #experience {
@@ -94,24 +99,24 @@ section {
 
 .job_location {
   font-weight: 100;
-  font-size: 1.5em;
+  font-size: 2.5rem;
   text-align: left;
-  margin-bottom: 2em;
+  margin-bottom: 4rem;
 }
 
 ul {
-  margin-bottom: 3em;
+  margin-bottom: 4rem;
 }
 
 li {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
   list-style-position: inside;
 }
 
 .job_date {
   text-align: left;
-  font-size: 1.5em;
+  font-size: 2.5rem;
 }
 
 h1,
@@ -121,12 +126,12 @@ a,
 li {
   color: white;
   font-family: "Roboto", sans-serif;
-  scroll-margin-top: 1em;
+  scroll-margin-top: 15rem;
 }
 
 h1 {
   font-weight: 900;
-  font-size: 10em;
+  font-size: 20rem;
   white-space: nowrap;
   overflow: hidden;
   margin: 0 auto;
@@ -137,7 +142,7 @@ h1 {
 
 h2 {
   font-weight: 700;
-  font-size: 7.5em;
+  font-size: 15rem;
   grid-area: header;
   justify-self: center;
   align-self: end;
@@ -145,14 +150,14 @@ h2 {
 
 h3 {
   font-weight: 500;
-  font-size: 3em;
+  font-size: 5rem;
 }
 
 p {
   color: white;
   font-family: "Roboto", sans-serif;
   font-style: italic;
-  font-size: 2em;
+  font-size: 5rem;
   text-align: center;
 }
 
@@ -174,12 +179,12 @@ p {
 
 .slide {
   display: flex;
-  scroll-margin-top: 30em;
+  scroll-margin-top: 51rem;
   scroll-snap-align: start;
-  border-radius: 1em;
+  border-radius: 1rem;
   flex-shrink: 0;
   width: 100%;
-  margin-right: 1em;
+  margin-right: 1rem;
   background-color: #555;
 }
 
@@ -187,21 +192,21 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5em;
+  padding: 5rem;
   text-align: left;
   width: 40%;
 }
 
 .slide_description {
   text-align: left;
-  font-size: 1.5em;
+  font-size: 2.5rem;
   font-style: normal;
-  padding-top: 2em;
+  padding-top: 2rem;
 }
 
 .slide_image {
   width: 60%;
-  border-radius: 0 1em 1em 0;
+  border-radius: 0 1rem 1rem 0;
   background-size: cover;
 }
 
@@ -228,8 +233,8 @@ p {
 .carousel_button {
   font-family: "Roboto", sans-serif;
   display: inline-flex;
-  width: 2em;
-  height: 2em;
+  width: 4rem;
+  height: 4rem;
   background-color: #555;
   color: white;
   text-decoration: none;
@@ -240,29 +245,29 @@ p {
 }
 
 #skills_grid {
-  margin: 0em 25em;
+  margin: 0em 25rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-area: main;
   place-items: center;
   place-self: center;
-  height: 100%;
-  gap: 1em;
+  height: 80%;
+  gap: 1rem;
 }
 
 .skills_grid_item {
   display: grid;
-  grid-template-rows: 8em 1fr;
-  grid-template-columns: 8em;
+  grid-template-rows: 8rem 1fr;
+  grid-template-columns: 8rem;
   grid-template-areas:
     "image"
     "text";
   background-color: #ccc;
-  border-radius: 1em;
+  border-radius: 1rem;
   height: 100%;
   width: 100%;
-  box-shadow: 1em 1.5em 2.5em black;
-  padding: 2em 2.5em;
+  box-shadow: 1rem 1.5rem 2.5rem black;
+  padding: 2rem 2.5rem;
   place-items: center;
 }
 
@@ -276,7 +281,7 @@ p {
 .skills_grid_item > p {
   grid-area: text;
   color: #555;
-  font-size: 1em;
+  font-size: 2rem;
   font-style: normal;
 }
 
@@ -296,14 +301,14 @@ p {
 
 .education_grid_item_description {
   font-style: normal;
-  font-size: 1.75em;
+  font-size: 2.75rem;
   font-weight: 300;
-  padding-top: 1em;
+  padding-top: 1rem;
 }
 
 .education_grid_item_time {
-  font-size: 1.5em;
-  padding-top: 1em;
+  font-size: 2.5rem;
+  padding-top: 1rem;
   font-weight: 200;
 }
 
@@ -312,21 +317,22 @@ p {
   grid-area: main;
   grid-template-columns: 1fr 1fr;
   place-items: center;
-  gap: 15em;
+  gap: 15rem;
 }
 
 .project_grid_item > h3 {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
 }
 
 .project_grid_item > a {
   color: white;
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: 300;
 }
 
 .project_grid_item_description {
-  margin-top: 1em;
+  margin-top: 2rem;
+  font-size: 3rem;
   text-align: left;
 }
 
