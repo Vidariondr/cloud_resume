@@ -1,14 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
+:root {
+  --font-size--2: clamp(0.6944rem, 0.6501rem + 0.1971vw, 0.96rem);
+  --font-size--1: clamp(0.8333rem, 0.7721rem + 0.2721vw, 1.2rem);
+  --font-size-0: clamp(1rem, 0.9165rem + 0.3711vw, 1.5rem);
+  --font-size-1: clamp(1.2rem, 1.0873rem + 0.5009vw, 1.875rem);
+  --font-size-2: clamp(1.44rem, 1.2891rem + 0.6707vw, 2.3438rem);
+  --font-size-3: clamp(1.728rem, 1.5273rem + 0.8918vw, 2.9297rem);
+  --font-size-4: clamp(2.0736rem, 1.8084rem + 1.1789vw, 3.6621rem);
+  --font-size-5: clamp(2.4883rem, 2.1395rem + 1.5505vw, 4.5776rem);
+  --font-size-6: clamp(2.986rem, 2.5291rem + 2.0305vw, 5.722rem);
+  --font-size-7: clamp(3.5832rem, 2.9872rem + 2.6489vw, 7.1526rem);
+  --font-size-8: clamp(4.2998rem, 3.5249rem + 3.4441vw, 8.9407rem);
+
+  --space-4xs: clamp(0.125rem, 0.125rem + 0vw, 0.125rem);
+  --space-3xs: clamp(0.25rem, 0.2291rem + 0.0928vw, 0.375rem);
+  --space-2xs: clamp(0.5rem, 0.4583rem + 0.1855vw, 0.75rem);
+  --space-xs: clamp(0.75rem, 0.6874rem + 0.2783vw, 1.125rem);
+  --space-s: clamp(1rem, 0.9165rem + 0.3711vw, 1.5rem);
+  --space-m: clamp(1.5rem, 1.3748rem + 0.5566vw, 2.25rem);
+  --space-l: clamp(2rem, 1.833rem + 0.7421vw, 3rem);
+  --space-xl: clamp(3rem, 2.7495rem + 1.1132vw, 4.5rem);
+  --space-2xl: clamp(4rem, 3.666rem + 1.4842vw, 6rem);
+  --space-3xl: clamp(6rem, 5.4991rem + 2.2263vw, 9rem);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
-  font-size: 62.5%;
 }
 
 body {
@@ -17,43 +46,20 @@ body {
   display: grid;
 }
 
-#floating_menu {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-  margin-right: 10rem;
-  margin-bottom: 10rem;
-}
-
-#floating_menu > a {
-  margin-bottom: 1rem;
-  border-radius: 50%;
-  padding: 1rem 1rem;
-  display: inline-flex;
-  background-color: #555;
-}
-
-#floating_menu > a:hover {
-  background-color: #888;
-}
-
-#floating_menu > a > svg {
-  fill: white;
-  width: 2rem;
-  height: 2rem;
-}
-
 #background {
   background: linear-gradient(90deg, #5d6166, #c7c4bf) no-repeat;
   position: fixed;
   height: 100%;
   width: 100%;
   mask:
-    radial-gradient(circle at 50% 50%, white 0.2rem, transparent 0.25rem) 50%
-      50% / 3.5rem 3.5rem,
-    url("resources/noise-mask.png") 25.6rem 50% / 25.6rem 25.6rem;
+    radial-gradient(
+        circle at 50% 50%,
+        white var(--space-4xs),
+        transparent var(--space-4xs)
+      )
+      50% 50% / var(--space-m) var(--space-m),
+    url("resources/noise-mask.png") var(--space-3xl) 50% / var(--space-3xl)
+      var(--space-3xl);
   mask-composite: intersect;
   z-index: -1;
 }
@@ -64,59 +70,63 @@ header {
 
 header,
 section {
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
 }
 
 section {
-  grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
-  grid-template-rows: 2.5fr 7fr 0.5fr;
-  grid-template-areas:
-    ". header header ."
-    ". main main sidebar"
-    ". footer footer .";
-  gap: 1rem;
+  margin-top: var(--space-3xl);
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-areas: ". main .";
+  gap: var(--space-2xs);
 }
 
-#experience {
-  grid-template-areas:
-    ". header header ."
-    ". left right sidebar"
-    ". footer footer .";
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  grid-area: main;
+  justify-content: center;
+  align-items: center;
+  max-width: 80vw;
 }
 
-#job1 {
-  grid-area: left;
-  width: 100%;
-  align-self: center;
+#experience_container {
+  display: flex;
+  grid-area: main;
+  align-items: center;
+  gap: var(--space-xl);
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-#job2 {
-  grid-area: right;
-  width: 100%;
-  align-self: center;
+#experience_container > div {
+  max-width: 40rem;
+}
+
+@media screen and (min-width: 2150px) {
+  #experience_container > div {
+    max-width: 48rem;
+  }
 }
 
 .job_location {
   font-weight: 100;
-  font-size: 2.5rem;
   text-align: left;
-  margin-bottom: 4rem;
+  margin-bottom: var(--space-l);
 }
 
 ul {
-  margin-bottom: 4rem;
+  margin-bottom: var(--space-l);
 }
 
 li {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 18px;
+  margin-bottom: var(--space-2xs);
   list-style-position: inside;
 }
 
 .job_date {
   text-align: left;
-  font-size: 2.5rem;
 }
 
 h1,
@@ -126,44 +136,43 @@ a,
 li {
   color: white;
   font-family: "Roboto", sans-serif;
-  scroll-margin-top: 15rem;
 }
 
 h1 {
   font-weight: 900;
-  font-size: 20rem;
-  white-space: nowrap;
+  text-align: center;
+  font-size: var(--font-size-8);
   overflow: hidden;
   margin: 0 auto;
-  clip-path: inset(0 100% 0 0);
-  animation: typing 3.5s forwards;
+  /*clip-path: inset(0 100% 0 0);
+  animation: typing 3.5s forwards; */
   align-self: end;
 }
 
 h2 {
   font-weight: 700;
-  font-size: 15rem;
-  grid-area: header;
+  font-size: var(--font-size-5);
+  grid-area: main;
   justify-self: center;
-  align-self: end;
+  margin-bottom: var(--space-xl);
 }
 
 h3 {
   font-weight: 500;
-  font-size: 5rem;
+  font-size: var(--font-size-4);
 }
 
 p {
   color: white;
   font-family: "Roboto", sans-serif;
   font-style: italic;
-  font-size: 5rem;
+  font-size: var(--font-size-0);
   text-align: center;
 }
 
 #hobbies_carousel {
   text-align: center;
-  width: 75%;
+  width: 100%;
   height: 75%;
   grid-area: main;
   place-self: center;
@@ -179,34 +188,40 @@ p {
 
 .slide {
   display: flex;
-  scroll-margin-top: 51rem;
+  flex-direction: column;
+  scroll-margin-top: 25rem;
   scroll-snap-align: start;
-  border-radius: 1rem;
+  border-radius: var(--space-s);
   flex-shrink: 0;
   width: 100%;
-  margin-right: 1rem;
+  margin-right: var(--space-s);
   background-color: #555;
+}
+
+@media screen and (min-width: 1440px) {
+  .slide {
+    flex-direction: row;
+  }
 }
 
 .slide_text_container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5rem;
+  padding: var(--space-xl);
   text-align: left;
-  width: 40%;
+  flex-basis: 40%;
 }
 
 .slide_description {
   text-align: left;
-  font-size: 2.5rem;
   font-style: normal;
-  padding-top: 2rem;
+  padding-top: var(--space-s);
 }
 
 .slide_image {
-  width: 60%;
-  border-radius: 0 1rem 1rem 0;
+  flex-basis: 60%;
+  border-radius: var(--space-s);
   background-size: cover;
 }
 
@@ -230,58 +245,58 @@ p {
   background-position: right;
 }
 
+#carousel_button_container {
+  display: flex;
+  margin-top: var(--space-s);
+}
+
 .carousel_button {
   font-family: "Roboto", sans-serif;
   display: inline-flex;
-  width: 4rem;
-  height: 4rem;
+  width: var(--space-l);
+  height: var(--space-l);
   background-color: #555;
   color: white;
-  text-decoration: none;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
   border-radius: 50%;
-  margin: 0 0 1.5rem 0;
 }
 
 #skills_grid {
-  margin: 0em 25rem;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  width: 75%;
   grid-area: main;
-  place-items: center;
-  place-self: center;
-  height: 80%;
-  gap: 1rem;
+  gap: var(--space-xs);
 }
 
 .skills_grid_item {
   display: grid;
-  grid-template-rows: 8rem 1fr;
-  grid-template-columns: 8rem;
+  grid-template-rows: var(--space-3xl) 1fr;
   grid-template-areas:
     "image"
     "text";
   background-color: #ccc;
-  border-radius: 1rem;
+  border-radius: var(--space-xs);
   height: 100%;
   width: 100%;
-  box-shadow: 1rem 1.5rem 2.5rem black;
-  padding: 2rem 2.5rem;
+  box-shadow: var(--space-xs) var(--space-s) var(--space-m) black;
+  padding: var(--space-m) var(--space-m);
   place-items: center;
 }
 
 .skills_grid_item > img {
   grid-area: image;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: scale-down;
 }
 
 .skills_grid_item > p {
   grid-area: text;
   color: #555;
-  font-size: 2rem;
+  font-size: var(--font-size-0);
   font-style: normal;
 }
 
@@ -292,48 +307,102 @@ p {
 
 #education_grid {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-area: main;
   place-items: center;
   text-align: center;
+  gap: var(--space-xl);
+}
+
+@media screen and (min-width: 1000px) {
+  #education_grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  #education_grid {
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  }
 }
 
 .education_grid_item_description {
   font-style: normal;
-  font-size: 2.75rem;
   font-weight: 300;
-  padding-top: 1rem;
+  padding-top: var(--space-xs);
 }
 
 .education_grid_item_time {
-  font-size: 2.5rem;
-  padding-top: 1rem;
+  font-size: var(--font-size--1);
+  padding-top: var(--space-xs);
   font-weight: 200;
 }
 
 #project_grid {
   display: grid;
   grid-area: main;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   place-items: center;
-  gap: 15rem;
+  gap: var(--space-xl);
+}
+
+@media screen and (min-width: 1800px) {
+  #project_grid {
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  }
+}
+
+.project_grid_item {
+  max-width: 75%;
 }
 
 .project_grid_item > h3 {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2xs);
 }
 
 .project_grid_item > a {
   color: white;
-  font-size: 2rem;
+  font-size: var(--font-size--1);
   font-weight: 300;
 }
 
 .project_grid_item_description {
-  margin-top: 2rem;
-  font-size: 3rem;
+  margin-top: var(--space-m);
   text-align: left;
+}
+
+#floating_menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  margin-right: var(--space-3xl);
+  margin-bottom: var(--space-3xl);
+}
+
+#floating_menu > a {
+  margin-bottom: var(--space-2xs);
+  border-radius: 50%;
+  padding: var(--space-2xs);
+  display: inline-flex;
+  background-color: #555;
+}
+
+#floating_menu > a:hover {
+  background-color: #888;
+}
+
+#floating_menu > a > svg {
+  fill: white;
+  width: var(--space-s);
+  height: var(--space-s);
+}
+
+@media screen and (max-width: 1000px) {
+  #floating_menu {
+    display: none;
+  }
 }
 
 @keyframes typing {
