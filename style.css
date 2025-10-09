@@ -381,9 +381,3 @@ p {
 		display: none;
 	}
 }
-
-@keyframes typing {
-	to {
-		clip-path: inset(0 0 0 0);
-	}
-}
