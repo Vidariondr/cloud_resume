@@ -12,16 +12,16 @@
 		"enabled": true,
 		"indentStyle": "tab"
 	},
-        "html": {
-                "formatter": {
-                        "enabled": true
-                }
-        },
-        "css": {
-                "formatter": {
-                        "enabled": true
-                }
-        },
+	"html": {
+		"formatter": {
+			"enabled": true
+		}
+	},
+	"css": {
+		"formatter": {
+			"enabled": true
+		}
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
@@ -38,7 +38,7 @@
 		"actions": {
 			"source": {
 				"organizeImports": "on",
-                                "useSortedProperties": "on"
+				"useSortedProperties": "on"
 			}
 		}
 	}

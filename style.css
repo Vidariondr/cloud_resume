@@ -59,7 +59,7 @@ body {
 			transparent var(--space-4xs)
 		)
 		50% 50% / var(--space-m) var(--space-m),
-		url("resources/noise-mask.png") var(--space-3xl) 50% / var(--space-3xl)
+		url("resources/noise-mask.webp") var(--space-3xl) 50% / var(--space-3xl)
 		var(--space-3xl);
 	mask-composite: intersect;
 }
@@ -211,22 +211,22 @@ p {
 }
 
 #slide_image_1 {
-	background-image: url(resources/3d_printing.jpg);
+	background-image: url(resources/3d_printing.webp);
 	background-position: right;
 }
 
 #slide_image_2 {
-	background-image: url(resources/self_hosting.jpg);
+	background-image: url(resources/self_hosting.webp);
 	background-position: left;
 }
 
 #slide_image_3 {
-	background-image: url(resources/bike.jpg);
+	background-image: url(resources/bike.webp);
 	background-position: right;
 }
 
 #slide_image_4 {
-	background-image: url(resources/skills.jpg);
+	background-image: url(resources/skills.webp);
 	background-position: right;
 }
 
