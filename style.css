@@ -178,7 +178,7 @@ p {
 	width: 100%;
 	margin-right: var(--space-s);
 	scroll-snap-align: start;
-	scroll-margin-top: 25rem;
+	scroll-margin-top: var(--space-3xl);
 	background-color: #555;
 	border-radius: var(--space-s);
 }
