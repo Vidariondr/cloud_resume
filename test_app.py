@@ -23,11 +23,11 @@ def mocked_aws(aws_credentials):
         yield
 
 @pytest.fixture
-def create_table1(dynamodb):
+def create_visitor_table(dynamodb):
     dynamodb.create_table(TableName='visitor-counter', AttributeDefinitions=[{ 'AttributeName': 'var_name', 'AttributeType': 'S'}], KeySchema=[{ 'AttributeName': 'var_name', 'KeyType': 'HASH'}], BillingMode='PAY_PER_REQUEST')
 
 @pytest.fixture
-def put_item(create_table1):
+def put_item(create_visitor_table):
     boto3.resource('dynamodb').Table('visitor-counter').put_item(Item={'var_name': 'visitors', 'number': 1})
 
 def test_update_item(put_item):
@@ -36,14 +36,14 @@ def test_update_item(put_item):
     assert json.loads(response["body"]) == 2
     response2 = lambda_handler({}, None)
     assert json.loads(response2["body"]) == 3
-    responce3 = boto3.resource('dynamodb').Table('visitor-counter').get_item(Key={'var_name': 'visitors'})
-    assert responce3['Item']['number'] == 3
+    response3 = boto3.resource('dynamodb').Table('visitor-counter').get_item(Key={'var_name': 'visitors'})
+    assert response3['Item']['number'] == 3
 
-def test_no_initial_value(create_table1):
+def test_no_initial_value(create_visitor_table):
     from app import lambda_handler
     response = lambda_handler({}, None)
     assert json.loads(response["body"]) == 1
     response2 = lambda_handler({}, None)
     assert json.loads(response2["body"]) == 2
-    responce3 = boto3.resource('dynamodb').Table('visitor-counter').get_item(Key={'var_name': 'visitors'})
-    assert responce3['Item']['number'] == 2
+    response3 = boto3.resource('dynamodb').Table('visitor-counter').get_item(Key={'var_name': 'visitors'})
+    assert response3['Item']['number'] == 2
