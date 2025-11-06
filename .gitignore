@@ -1,2 +1,16 @@
 node_modules
 __pycache__
+.pytest_cache
+.venv
+
+*.tfstate
+*.tfstate*
+
+crash.log
+crash.*.log
+
+*.tfvars
+*.tfvars.json
+
+.terraform
+.terraform.tfstate.lock.info

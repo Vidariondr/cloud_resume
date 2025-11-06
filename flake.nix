@@ -13,6 +13,7 @@
         pkgs.awscli2
         pkgs.nodejs_22
         pkgs.playwright-driver.browsers
+        pkgs.terraform
         (pkgs.python313.withPackages (p:
           with p; [
             boto3
