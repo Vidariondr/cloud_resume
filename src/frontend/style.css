@@ -1,0 +1,414 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+	--font-size--2: clamp(0.6944rem, 0.6501rem + 0.1971vw, 0.96rem);
+	--font-size--1: clamp(0.8333rem, 0.7721rem + 0.2721vw, 1.2rem);
+	--font-size-0: clamp(1rem, 0.9165rem + 0.3711vw, 1.5rem);
+	--font-size-1: clamp(1.2rem, 1.0873rem + 0.5009vw, 1.875rem);
+	--font-size-2: clamp(1.44rem, 1.2891rem + 0.6707vw, 2.3438rem);
+	--font-size-3: clamp(1.728rem, 1.5273rem + 0.8918vw, 2.9297rem);
+	--font-size-4: clamp(2.0736rem, 1.8084rem + 1.1789vw, 3.6621rem);
+	--font-size-5: clamp(2.4883rem, 2.1395rem + 1.5505vw, 4.5776rem);
+	--font-size-6: clamp(2.986rem, 2.5291rem + 2.0305vw, 5.722rem);
+	--font-size-7: clamp(3.5832rem, 2.9872rem + 2.6489vw, 7.1526rem);
+	--font-size-8: clamp(4.2998rem, 3.5249rem + 3.4441vw, 8.9407rem);
+
+	--space-4xs: clamp(0.125rem, 0.125rem + 0vw, 0.125rem);
+	--space-3xs: clamp(0.25rem, 0.2291rem + 0.0928vw, 0.375rem);
+	--space-2xs: clamp(0.5rem, 0.4583rem + 0.1855vw, 0.75rem);
+	--space-xs: clamp(0.75rem, 0.6874rem + 0.2783vw, 1.125rem);
+	--space-s: clamp(1rem, 0.9165rem + 0.3711vw, 1.5rem);
+	--space-m: clamp(1.5rem, 1.3748rem + 0.5566vw, 2.25rem);
+	--space-l: clamp(2rem, 1.833rem + 0.7421vw, 3rem);
+	--space-xl: clamp(3rem, 2.7495rem + 1.1132vw, 4.5rem);
+	--space-2xl: clamp(4rem, 3.666rem + 1.4842vw, 6rem);
+	--space-3xl: clamp(6rem, 5.4991rem + 2.2263vw, 9rem);
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	display: grid;
+	min-height: 100vh;
+	background: hsl(0 0% 10%);
+}
+
+#background {
+	position: fixed;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, #5d6166, #c7c4bf) no-repeat;
+	mask:
+		radial-gradient(
+			circle at 50% 50%,
+			white var(--space-4xs),
+			transparent var(--space-4xs)
+		)
+		50% 50% / var(--space-m) var(--space-m),
+		url("resources/noise-mask.webp") var(--space-3xl) 50% / var(--space-3xl)
+		var(--space-3xl);
+	mask-composite: intersect;
+}
+
+header,
+section {
+	display: grid;
+	min-height: 100vh;
+}
+
+section {
+	grid-template-areas: ". main .";
+	grid-template-columns: 1fr 5fr 1fr;
+	gap: var(--space-2xs);
+	margin-top: var(--space-3xl);
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	grid-area: main;
+	align-items: center;
+	justify-content: center;
+	max-width: 80vw;
+}
+
+#experience_container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-xl);
+	justify-content: center;
+}
+
+#experience_container > div {
+	max-width: 40rem;
+}
+
+@media screen and (min-width: 2150px) {
+	#experience_container > div {
+		max-width: 48rem;
+	}
+}
+
+.job_location {
+	margin-bottom: var(--space-l);
+	font-weight: 100;
+	text-align: left;
+}
+
+ul {
+	margin-bottom: var(--space-l);
+}
+
+li {
+	margin-bottom: var(--space-2xs);
+	font-size: 18px;
+	list-style-position: inside;
+}
+
+.job_date {
+	text-align: left;
+}
+
+h1,
+h2,
+h3,
+a,
+li {
+	font-family: "Roboto", sans-serif;
+	color: white;
+}
+
+h1 {
+	align-self: end;
+	font-size: var(--font-size-8);
+	font-weight: 900;
+	text-align: center;
+}
+
+h2 {
+	margin-bottom: var(--space-xl);
+	font-size: var(--font-size-5);
+	font-weight: 700;
+}
+
+h3 {
+	font-size: var(--font-size-4);
+	font-weight: 500;
+}
+
+p {
+	font-family: "Roboto", sans-serif;
+	font-size: var(--font-size-0);
+	font-style: italic;
+	color: white;
+	text-align: center;
+}
+
+#hobbies_carousel {
+	width: 100%;
+	height: 75%;
+}
+
+#slides {
+	display: flex;
+	overflow: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	height: 100%;
+}
+
+.slide {
+	display: flex;
+	flex-shrink: 0;
+	flex-direction: column;
+	width: 100%;
+	margin-right: var(--space-s);
+	scroll-snap-align: start;
+	scroll-margin-top: var(--space-3xl);
+	background-color: #555;
+	border-radius: var(--space-s);
+}
+
+@media screen and (min-width: 1440px) {
+	.slide {
+		flex-direction: row;
+	}
+}
+
+.slide_text_container {
+	display: flex;
+	flex-basis: 40%;
+	flex-direction: column;
+	justify-content: center;
+	padding: var(--space-xl);
+	text-align: left;
+}
+
+.slide_description {
+	padding-top: var(--space-s);
+	font-style: normal;
+	text-align: left;
+}
+
+.slide_image {
+	flex-basis: 60%;
+	background-size: cover;
+	border-radius: var(--space-s);
+}
+
+#slide_image_1 {
+	background-image: url(resources/3d_printing.webp);
+	background-position: right;
+}
+
+#slide_image_2 {
+	background-image: url(resources/self_hosting.webp);
+	background-position: left;
+}
+
+#slide_image_3 {
+	background-image: url(resources/bike.webp);
+	background-position: right;
+}
+
+#slide_image_4 {
+	background-image: url(resources/skills.webp);
+	background-position: right;
+}
+
+#carousel_button_container {
+	display: flex;
+	margin-top: var(--space-s);
+}
+
+.carousel_button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--space-l);
+	height: var(--space-l);
+	font-family: "Roboto", sans-serif;
+	color: white;
+	text-decoration: none;
+	background-color: #555;
+	border-radius: 50%;
+}
+
+#skills_grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: var(--space-xs);
+	width: 75%;
+}
+
+.skills_grid_item {
+	display: grid;
+	grid-template-rows: var(--space-3xl) 1fr;
+	place-items: center;
+	width: 100%;
+	height: 100%;
+	padding: var(--space-m) var(--space-m);
+	background-color: #ccc;
+	border-radius: var(--space-xs);
+	box-shadow: var(--space-xs) var(--space-s) var(--space-m) black;
+}
+
+.skills_grid_item > img {
+	width: 80%;
+	height: 80%;
+	object-fit: scale-down;
+}
+
+.skills_grid_item > p {
+	font-size: var(--font-size-0);
+	font-style: normal;
+	color: #555;
+}
+
+.skills_grid_item:hover {
+	transform: scale(115%);
+	transition: ease-in 0.2s;
+}
+
+#education_grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: var(--space-xl);
+	place-items: center;
+	text-align: center;
+}
+
+@media screen and (min-width: 1000px) {
+	#education_grid {
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	}
+}
+
+@media screen and (min-width: 1800px) {
+	#education_grid {
+		grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+	}
+}
+
+.education_grid_item_description {
+	padding-top: var(--space-xs);
+	font-style: normal;
+	font-weight: 300;
+}
+
+.education_grid_item_time {
+	padding-top: var(--space-xs);
+	font-size: var(--font-size--1);
+	font-weight: 200;
+}
+
+#project_grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: var(--space-xl);
+	place-items: center;
+}
+
+@media screen and (min-width: 1800px) {
+	#project_grid {
+		grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+	}
+}
+
+.project_grid_item {
+	max-width: 75%;
+}
+
+.project_grid_item > h3 {
+	margin-bottom: var(--space-2xs);
+}
+
+.project_grid_item > a {
+	font-size: var(--font-size--1);
+	font-weight: 300;
+	color: white;
+}
+
+.project_grid_item_description {
+	margin-top: var(--space-m);
+	text-align: left;
+}
+
+#about_grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: var(--space-xl);
+	place-items: center;
+}
+
+@media screen and (min-width: 1800px) {
+	#about_grid {
+		grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+	}
+}
+
+.about_grid_item {
+	max-width: 100%;
+}
+
+.about_grid_item > p {
+	font-style: normal;
+	text-align: left;
+}
+
+#about_grid_text_item {
+	max-width: 75%;
+	padding: var(--space-xl) var(--space-m);
+}
+
+#counter_text {
+	padding-top: var(--space-xl);
+}
+
+#floating_menu {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	display: flex;
+	flex-direction: column;
+	margin-right: var(--space-3xl);
+	margin-bottom: var(--space-3xl);
+}
+
+#floating_menu > a {
+	display: inline-flex;
+	padding: var(--space-2xs);
+	margin-bottom: var(--space-2xs);
+	background-color: #555;
+	border-radius: 50%;
+}
+
+#floating_menu > a:hover {
+	background-color: #888;
+}
+
+#floating_menu > a > svg {
+	width: var(--space-s);
+	height: var(--space-s);
+	fill: white;
+}
+
+@media screen and (max-width: 1000px) {
+	#floating_menu {
+		display: none;
+	}
+}
