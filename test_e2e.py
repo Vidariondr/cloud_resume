@@ -9,7 +9,13 @@ def test_visitor_counter_value_changes(page: Page):
     page.goto("https://jkaszczuk.com")
     initial_value = int(page.locator("#counter").inner_text())
 
+    while (initial_value == 0):
+        initial_value = int(page.locator("#counter").inner_text())
+
     page.goto("https://jkaszczuk.com")
     changed_value = page.locator("#counter")
+
+    while (int(changed_value.inner_text()) == 0):
+        changed_value = page.locator("#counter")
     
-    expect(changed_value).not_to_have_text(str(initial_value))
+    expect(changed_value).to_have_text(str(initial_value + 1))
