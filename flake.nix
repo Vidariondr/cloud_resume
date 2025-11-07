@@ -11,7 +11,7 @@
     devShells.x86_64-linux.default = pkgs.mkShell {
       packages = [
         pkgs.awscli2
-        pkgs.nodejs_22
+        pkgs.biome
         pkgs.playwright-driver.browsers
         pkgs.terraform
         (pkgs.python313.withPackages (p:
