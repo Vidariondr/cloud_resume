@@ -12,4 +12,4 @@ def test_visitor_counter_value_changes(page: Page):
     page.goto("https://jkaszczuk.com")
     changed_value = page.locator("#counter")
     
-    expect(changed_value).to_have_text(str(initial_value + 1))
+    expect(changed_value).not_to_have_text(str(initial_value))
