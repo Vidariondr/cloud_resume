@@ -7,12 +7,12 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "cloudresume-jk729-tfstate"
-    key = "env/prod/terraform.tfstate"
-    region = "eu-central-1"
-    encrypt = true
+    bucket       = "cloudresume-jk729-tfstate"
+    key          = "env/prod/terraform.tfstate"
+    region       = "eu-central-1"
+    encrypt      = true
     use_lockfile = true
-    profile = "tf-state-profile"
+    profile      = "tf-state-profile"
   }
 
   required_version = ">= 1.13"
