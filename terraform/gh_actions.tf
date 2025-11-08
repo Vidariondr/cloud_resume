@@ -23,13 +23,13 @@ data "aws_iam_policy_document" "github_actions_policy" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:aud"
-      values   = ["sts:amazonaws.com"]
+      values   = ["sts.amazonaws.com"]
     }
 
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:vidariondr/cloud-resume:ref:refs/heads/main"]
+      values   = ["repo:vidariondr/cloud_resume:ref:refs/heads/main"]
     }
   }
   version = "2008-10-17"
