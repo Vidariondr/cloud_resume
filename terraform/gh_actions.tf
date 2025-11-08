@@ -29,10 +29,10 @@ data "aws_iam_policy_document" "github_actions_policy" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:vidariondr/cloud_resume:ref:refs/heads/main"]
+      values   = ["repo:Vidariondr/cloud_resume:ref:refs/heads/main"]
     }
   }
-  version = "2008-10-17"
+  version = "2012-10-17"
 }
 
 resource "aws_iam_role" "github_actions" {
