@@ -14,6 +14,20 @@ permissions:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_address_line_1: ${{ secrets.addres_line_1 }}
+      TF_VAR_bucket_name: ${{ secrets.bucket_name }}
+      TF_VAR_s3_origin_name: ${{ secrets.s3_origin_name }}
+      TF_VAR_domain: ${{ secrets.domain }}
+      TF_VAR_city: ${{ secrets.city }}
+      TF_VAR_contact_type: ${{ secrets.contact_type }}
+      TF_VAR_country_code: ${{ secrets.country_code }}
+      TF_VAR_email: ${{ secrets.email }}
+      TF_VAR_first_name: ${{ secrets.first_name }}
+      TF_VAR_last_name: ${{ secrets.last_name }}
+      TF_VAR_phone_number: ${{ secrets.phone_number }}
+      TF_VAR_zip_code: ${{ secrets.zip_code }}
+      TF_VAR_python_runtime: ${{ secrets.python_runtime }}
     steps:
       - uses: actions/checkout@v5
 
