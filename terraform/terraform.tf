@@ -12,7 +12,6 @@ terraform {
     region       = "eu-central-1"
     encrypt      = true
     use_lockfile = true
-    profile      = "tf-state-profile"
   }
 
   required_version = ">= 1.13"
