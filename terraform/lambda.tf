@@ -35,4 +35,5 @@ resource "aws_lambda_function" "visitor_counter_function" {
     log_format = "Text"
     log_group  = "/aws/lambda/visitor_counter_function"
   }
+  source_code_hash = data.archive_file.lambda_archive.output_base64sha256
 }
