@@ -34,7 +34,7 @@ resource "aws_s3_object" "s3_object_upload" {
   bucket   = aws_s3_bucket.website.bucket
   for_each = fileset("../src/frontend", "**")
   key      = each.value
-  source   = "../src/frontend"
+  source   = "../src/frontend/${each.value}"
   content_type = (
     endswith(each.value, ".html") ? "text/html"
     : endswith(each.value, ".css") ? "text/css"
