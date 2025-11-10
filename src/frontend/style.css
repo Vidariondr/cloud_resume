@@ -359,6 +359,10 @@ p {
 	#about_grid {
 		grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
 	}
+
+	#about_grid_text_item {
+		max-width: 75%;
+	}
 }
 
 .about_grid_item {
@@ -371,7 +375,7 @@ p {
 }
 
 #about_grid_text_item {
-	max-width: 75%;
+	max-width: 100%;
 	padding: var(--space-xl) var(--space-m);
 }
 
