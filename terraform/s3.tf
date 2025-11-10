@@ -40,6 +40,7 @@ resource "aws_s3_object" "s3_object_upload" {
     : endswith(each.value, ".css") ? "text/css"
     : endswith(each.value, ".js") ? "application/javascript"
     : endswith(each.value, ".webp") ? "image/webp"
+    : endswith(each.value, ".svg") ? "image/svg+xml"
     : "application/octet-stream"
   )
   etag = filemd5("../src/frontend/${each.value}")
