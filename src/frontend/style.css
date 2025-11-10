@@ -409,3 +409,19 @@ p {
 		display: none;
 	}
 }
+
+footer {
+	display: grid;
+	height: var(--space-2xl);
+	grid-template-areas: ". main .";
+	grid-template-columns: 1fr 5fr 1fr;
+	gap: var(--space-2xs);
+}
+
+#copyright {
+	font-size: var(--font-size--1);
+	grid-area: main;
+	place-self: center;
+	color: #5d6166;
+	font-family: "Roboto", sans-serif;
+}

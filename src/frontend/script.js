@@ -21,3 +21,5 @@ visitors().then((result) => {
 	visitors_number = result;
 	visitors_element.textContent = visitors_number;
 });
+
+document.getElementById("copyright_year").innerHTML = new Date().getFullYear();
