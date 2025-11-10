@@ -314,15 +314,22 @@
 				<div id="about_grid">
 					<div class="about_grid_item" id="about_grid_text_item">
 						<p>
-							Ta strona jest moją próbą wykonania
+							Ta strona jest moją realizacją projektu
 							<a href="https://https://cloudresumechallenge.dev/"
 								>Cloud Resume Challenge</a
-							>. W proces tworzenia projektu wchodzi zaprojektowanie strony,
-							implementacja frontendu i backendu, a także hostowanie w chmurze
-							AWS z wykorzystaniem usług takich jak S3, CloudFront, Route 53,
-							API Gateway, Lambda oraz IAM. Licznik poniżej działa w oparciu o
-							tę architekturę serverless, stanowiąc część wyzwania Cloud Resume
-							Challenge.
+							>. W ramach projektu zaprojektowałem stronę, zaimplementowałem
+							frontend i backend, a następnie wdrożyłem całość w chmurze AWS z
+							wykorzystaniem usług takich jak S3, CloudFront, Route 53, API
+							Gateway, Lambda oraz IAM.
+						</p>
+						<br>
+						<p>
+							Kod źródłowy jest zapisany w repozytorium na platformie GitHub.
+							Tam, GitHub Actions testuje kod funkcji Lambda, wdraża
+							infrastrukturę przy użyciu Terraform, oraz przeprowadza testy
+							end-2-end przy użyciu PlayWright. Licznik poniżej działa w oparciu
+							o tę architekturę serverless, stanowiąc część wyzwania Cloud
+							Resume Challenge.
 						</p>
 						<p id="counter_text">
 							Liczba odwiedzin: <span id="counter">0</span>
@@ -334,7 +341,11 @@
 				</div>
 			</div>
 		</section>
-		<footer><span id="copyright">Copyright © <span id="copyright_year"></span> Jakub Kaszczuk</span></footer>
+		<footer>
+			<span id="copyright"
+				>Copyright © <span id="copyright_year"></span>Jakub Kaszczuk</span
+			>
+		</footer>
 		<script src="script.js"></script>
 	</body>
 </html>
