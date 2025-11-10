@@ -292,16 +292,9 @@ p {
 	text-align: center;
 }
 
-@media screen and (min-width: 1000px) {
-	#education_grid {
-		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-	}
-}
-
-@media screen and (min-width: 1800px) {
-	#education_grid {
-		grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-	}
+.education_grid_item > img {
+	display: inline;
+	max-width: 75%;
 }
 
 .education_grid_item_description {
