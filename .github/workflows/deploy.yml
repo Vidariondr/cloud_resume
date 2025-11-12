@@ -78,7 +78,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tf-lock
-          path: terraform/terraform.lock.hcl
+          path: terraform/.terraform.lock.hcl
           include-hidden-files: true
 
   manual-approval:
@@ -126,7 +126,7 @@ jobs:
         uses: actions/download-artifact@v6
         with:
           name: tf-lock
-          path: terraform/terraform.lock.hcl
+          path: terraform/.terraform.lock.hcl
 
       - name: Terraform init
         run: terraform init
