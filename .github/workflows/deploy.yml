@@ -68,20 +68,17 @@ jobs:
       - name: Terraform plan
         run: terraform plan -input=false -out=plan.tfout
 
-      - run: echo "Current dir is $(pwd)"
-      - run: ls -lah
-
       - name: Upload plan
         uses: actions/upload-artifact@v4
         with:
           name: tf-plan
-          path: ./plan.tfout
+          path: terraform/plan.tfout
 
       - name: Upload tf lock
         uses: actions/upload-artifact@v4
         with:
           name: tf-lock
-          path: ./terraform.lock.hcl
+          path: terraform/terraform.lock.hcl
           include-hidden-files: true
 
   manual-approval:
