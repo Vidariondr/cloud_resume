@@ -120,13 +120,13 @@ jobs:
         uses: actions/download-artifact@v6
         with:
           name: tf-plan
-          path: ./plan.tfout
+          path: terraform/plan.tfout
 
       - name: Download tf-lock
         uses: actions/download-artifact@v6
         with:
           name: tf-lock
-          path: ./terraform.lock.hcl
+          path: terraform/terraform.lock.hcl
 
       - name: Terraform init
         run: terraform init
