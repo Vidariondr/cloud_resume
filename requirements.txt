@@ -1,5 +1,0 @@
-pytest==8.4.1
-playwright==1.54.0
-pytest-playwright==0.7.1
-moto==5.1.11
-boto3==1.40.18
