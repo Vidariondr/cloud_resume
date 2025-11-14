@@ -1,0 +1,75 @@
+name: Check
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+
+defaults:
+  run:
+    working-directory: terraform
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  run-checks:
+    timeout-minutes: 60
+
+    runs-on: ubuntu-latest
+
+    env:
+      TF_VAR_address_line_1: ${{ secrets.addres_line_1 }}
+      TF_VAR_bucket_name: ${{ secrets.bucket_name }}
+      TF_VAR_s3_origin_name: ${{ secrets.s3_origin_name }}
+      TF_VAR_domain: ${{ secrets.domain }}
+      TF_VAR_city: ${{ secrets.city }}
+      TF_VAR_contact_type: ${{ secrets.contact_type }}
+      TF_VAR_country_code: ${{ secrets.country_code }}
+      TF_VAR_email: ${{ secrets.email }}
+      TF_VAR_first_name: ${{ secrets.first_name }}
+      TF_VAR_last_name: ${{ secrets.last_name }}
+      TF_VAR_phone_number: ${{ secrets.phone_number }}
+      TF_VAR_zip_code: ${{ secrets.zip_code }}
+      TF_VAR_python_runtime: ${{ secrets.python_runtime }}
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install Python dependencies
+        working-directory: ${{ github.workspace }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-test-app.txt
+
+      - name: Run pytest tests
+        working-directory: ${{ github.workspace }}
+        run: python -m pytest src/backend/test_app.py -v
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+          role-session-name: GitHubActionsTerraform
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.13.3
+
+      - name: Terraform init
+        run: terraform init
+
+      - name: Terraform fmt
+        run: terraform fmt
+
+      - name: Terraform validate
+        run: terraform validate
+
+      - name: Terraform plan
+        run: terraform plan -input=false
