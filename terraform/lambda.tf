@@ -17,7 +17,7 @@ data "archive_file" "lambda_archive" {
   output_path = "../src/backend/function.zip"
 }
 
-resource "aws_iam_role" "visitor_counter_function_role" {
+resource "aws_iasm_role" "visitor_counter_function_role" {
   name               = "lambda_dynamodb_full_access_role"
   assume_role_policy = data.aws_iam_policy_document.visitor_counter_function_role.json
 }
