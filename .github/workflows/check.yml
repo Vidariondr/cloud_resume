@@ -18,19 +18,19 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      TF_VAR_address_line_1: ${{ secrets.addres_line_1 }}
-      TF_VAR_bucket_name: ${{ secrets.bucket_name }}
-      TF_VAR_s3_origin_name: ${{ secrets.s3_origin_name }}
-      TF_VAR_domain: ${{ secrets.domain }}
-      TF_VAR_city: ${{ secrets.city }}
-      TF_VAR_contact_type: ${{ secrets.contact_type }}
-      TF_VAR_country_code: ${{ secrets.country_code }}
-      TF_VAR_email: ${{ secrets.email }}
-      TF_VAR_first_name: ${{ secrets.first_name }}
-      TF_VAR_last_name: ${{ secrets.last_name }}
-      TF_VAR_phone_number: ${{ secrets.phone_number }}
-      TF_VAR_zip_code: ${{ secrets.zip_code }}
-      TF_VAR_python_runtime: ${{ secrets.python_runtime }}
+      TF_VAR_address_line_1: "test"
+      TF_VAR_bucket_name: "test"
+      TF_VAR_s3_origin_name: "test"
+      TF_VAR_domain: "test"
+      TF_VAR_city: "test"
+      TF_VAR_contact_type: "test"
+      TF_VAR_country_code: "test"
+      TF_VAR_email: "test"
+      TF_VAR_first_name: "test"
+      TF_VAR_last_name: "test"
+      TF_VAR_phone_number: "test"
+      TF_VAR_zip_code: "test"
+      TF_VAR_python_runtime: "test"
 
     steps:
       - uses: actions/checkout@v5
@@ -50,20 +50,13 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: python -m pytest src/backend/test_app.py -v
 
-      - name: Configure AWS credentials (OIDC)
-        uses: aws-actions/configure-aws-credentials@v5
-        with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          aws-region: us-east-1
-          role-session-name: GitHubActionsTerraform
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.13.3
 
       - name: Terraform init
-        run: terraform init
+        run: terraform init -backend=false
 
       - name: Terraform fmt
         run: terraform fmt
